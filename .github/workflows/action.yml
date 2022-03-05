@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: Push services directory to another repository to build JSDoc separately.
-      uses: johnhanlon86/flux@development
+    - uses: johnhanlon86/flux@development
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
