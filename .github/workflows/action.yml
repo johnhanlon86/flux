@@ -9,7 +9,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+      path: ./source-repo/
+
     - name: Push services directory to another repository to build JSDoc separately.
+      working-directory: ./source-repo/
+      run: ls .
+      shell: bash
       uses: johnhanlon86/flux@push-services-directory-to-another-repo-to-build-jsdocs-separately
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
