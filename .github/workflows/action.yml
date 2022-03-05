@@ -1,25 +1,22 @@
 name: JSDocs CI
 
-on:
-  push:
-    branches:
-      - master
-      - push-services-directory-to-another-repo-to-build-jsdocs-separately
+on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+
+    runs-on: ubuntu-20.04
+
     steps:
-    - name: Check out repository code
-    uses: actions/checkout@v2
+    - uses: actions/checkout@v2
     - name: Push services directory to another repository to build JSDoc separately.
-    uses: johnhanlon86/flux@push-services-directory-to-another-repo-to-build-jsdocs-separately
-    env:
-      API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-    with:
-      source-directory: 'ZelBack/src/services/'
-      destination-github-username: 'johnhanlon86'
-      destination-repository-name: 'fluxjsdocs'
-      user-email: johnhanlon86@gmail.com
-      user-name: 'johnhanlon86'
-      target-branch: main
+      uses: johnhanlon86/flux@push-services-directory-to-another-repo-to-build-jsdocs-separately
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+        source-directory: 'ZelBack/src/services/'
+        destination-github-username: 'johnhanlon86'
+        destination-repository-name: 'fluxjsdocs'
+        user-email: johnhanlon86@gmail.com
+        user-name: 'johnhanlon86'
+        target-branch: main
