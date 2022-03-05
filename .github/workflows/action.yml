@@ -8,13 +8,10 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     name: Check out repository code
-    
     - uses: johnhanlon86/flux@push-services-directory-to-another-repo-to-build-jsdocs-separately
     name: Push services directory to another repository to build JSDoc separately.
       env:
