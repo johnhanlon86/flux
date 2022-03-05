@@ -9,7 +9,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-      path: ./source-repo/
 
     - name: Push services directory to another repository to build JSDoc separately.
       uses: johnhanlon86/flux@push-services-directory-to-another-repo-to-build-jsdocs-separately
