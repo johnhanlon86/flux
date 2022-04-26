@@ -18,7 +18,7 @@ jobs:
     #       - 27017:27017
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     # - name: Use Node.js ${{ matrix.node-version }}
     #   uses: actions/setup-node@v1
     #   with:
@@ -36,7 +36,8 @@ jobs:
     #   uses: codecov/codecov-action@v2
     # https://github.com/cpina/github-action-push-to-another-repository
     - name: Push services directory to another GitHub repository to build JSDocs separately
-      uses: johnhanlon86/flux@actions-push-services-directory-to-other-repo # RunOnFlux/flux@master
+      id: local-action
+      uses: ./.github/actions/local-action # johnhanlon86/flux@actions-push-services-directory-to-other-repo # RunOnFlux/flux@master
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }} # Trunk to create secret (https://github.com/settings/tokens)
       with:
