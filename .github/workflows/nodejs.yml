@@ -7,36 +7,36 @@ jobs:
 
     runs-on: ubuntu-20.04
 
-    strategy:
-      matrix:
-        node-version: [14.x]
+    # strategy:
+    #   matrix:
+    #     node-version: [14.x]
 
-    services:
-      mongodb:
-        image: mongo:4.2
-        ports:
-          - 27017:27017
+    # services:
+    #   mongodb:
+    #     image: mongo:4.2
+    #     ports:
+    #       - 27017:27017
 
     steps:
     - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and test
-      run: |
-        npm i
-        npm run ciconfig
-        npm run homebuild
-        npm run test:zelback
-        npm run test:zelback:unit
-      env:
-        CI: true
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v2
+    # - name: Use Node.js ${{ matrix.node-version }}
+    #   uses: actions/setup-node@v1
+    #   with:
+    #     node-version: ${{ matrix.node-version }}
+    # - name: npm install, build, and test
+    #   run: |
+    #     npm i
+    #     npm run ciconfig
+    #     npm run homebuild
+    #     npm run test:zelback
+    #     npm run test:zelback:unit
+    #   env:
+    #     CI: true
+    # - name: Upload coverage to Codecov
+    #   uses: codecov/codecov-action@v2
     # https://github.com/cpina/github-action-push-to-another-repository
     - name: Push services directory to another GitHub repository to build JSDocs separately
-      uses: actions/checkout@v1 # johnhanlon86/flux@actions-push-services-directory-to-other-repo # RunOnFlux/flux@master
+      uses: johnhanlon86/flux@actions-push-services-directory-to-other-repo # RunOnFlux/flux@master
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }} # Trunk to create secret (https://github.com/settings/tokens)
       with:
