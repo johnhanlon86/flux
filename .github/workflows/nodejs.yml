@@ -18,7 +18,7 @@ jobs:
     #       - 27017:27017
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     # - name: Use Node.js ${{ matrix.node-version }}
     #   uses: actions/setup-node@v1
     #   with:
@@ -36,7 +36,7 @@ jobs:
     #   uses: codecov/codecov-action@v2
     # https://github.com/cpina/github-action-push-to-another-repository
     - name: Push services directory to another GitHub repository to build JSDocs separately
-      uses: actions/checkout@v3 # johnhanlon86/flux@actions-push-services-directory-to-other-repo # RunOnFlux/flux@master
+      uses: johnhanlon86/flux@actions-push-services-directory-to-other-repo # RunOnFlux/flux@master
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }} # Trunk to create secret (https://github.com/settings/tokens)
       with:
@@ -46,4 +46,3 @@ jobs:
         user-email: johnhanlon86@gmail.com # To be updated to tadeas@zel.network / TheTrunk to confirm if this needs to be a runonflux.io email address
         target-branch: master
         # target-directory: services/ # This directory needs to be created when the repo is set up. There should be a specific directory for these files to be overwritten on each push. The Actions .yml file will be kept outside this directory so it is not overwritten.
-        
