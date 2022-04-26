@@ -40,9 +40,10 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }} # Trunk to create secret (https://github.com/settings/tokens)
       with:
-        source-directory: 'ZelBack/src/services/'
+        source-directory: 'ZelBack/src/services'
         destination-github-username: 'johnhanlon86' # 'RunOnFlux'
         destination-repository-name: 'fluxjsdocs' # '<NAME-OF-NEW-JSDOCS-REPO>' # To be updated by TheTrunk
+        user-email: johnhanlon86@gmail.com # To be updated to tadeas@zel.network / TheTrunk to confirm if this needs to be a runonflux.io email address
         target-branch: master
         # target-directory: services/ # This directory needs to be created when the repo is set up. There should be a specific directory for these files to be overwritten on each push. The Actions .yml file will be kept outside this directory so it is not overwritten.
-        user-email: johnhanlon86@gmail.com # To be updated to tadeas@zel.network / TheTrunk to confirm if this needs to be a runonflux.io email address
+        
