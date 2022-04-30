@@ -36,8 +36,7 @@ jobs:
       uses: codecov/codecov-action@v2
     # https://github.com/cpina/github-action-push-to-another-repository
     - name: Push services directory to another GitHub repository to build JSDocs separately
-      id: local-action
-      uses: johnhanlon86/flux@actions-push-services-directory-to-other-repo # ./.github/actions/local-action # RunOnFlux/flux@master
+      uses: cpina/github-action-push-to-another-repository@main # johnhanlon86/flux@actions-push-services-directory-to-other-repo # ./.github/actions/local-action # RunOnFlux/flux@master
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }} # Trunk to create secret (https://github.com/settings/tokens)
       with:
