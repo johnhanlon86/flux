@@ -41,7 +41,7 @@ jobs:
       with:
         source-directory: 'ZelBack/src/services'
         destination-github-username: 'johnhanlon86' # 'RunOnFlux'
-        destination-repository-name: 'fluxjsdocs' # '<NAME-OF-NEW-JSDOCS-REPO>' # To be updated by TheTrunk
+        destination-repository-name: 'fluxjsdocs' # '<NAME-OF-NEW-JSDOCS-REPO>' # To be updated by TheTrunk/BlondFrogs
         user-email: johnhanlon86@gmail.com # To be updated to tadeas@zel.network/jeremy@zel.network
         target-branch: master
         target-directory: services/ # There should be a specific directory for these files to be overwritten on each push. The Actions .yml file will be kept outside this directory so it is not overwritten.
