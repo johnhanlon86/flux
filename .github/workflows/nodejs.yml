@@ -37,7 +37,7 @@ jobs:
     - name: Push services directory to another GitHub repository to build JSDocs separately
       uses: cpina/github-action-push-to-another-repository@main # https://github.com/cpina/github-action-push-to-another-repository
       env:
-        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }} # TheTrunk to create secret (https://github.com/settings/tokens)
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }} # TheTrunk/BlondFrogs to create secret (https://github.com/settings/tokens)
       with:
         source-directory: 'ZelBack/src/services'
         destination-github-username: 'johnhanlon86' # 'RunOnFlux'
